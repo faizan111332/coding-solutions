@@ -1,20 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    int a, b;
-    scanf("%d\n%d", &a, &b);
+    int n, sum = 0;
+    scanf("%d", &n);
 
-    char *words[] = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-
-    for (int i = a; i <= b; i++) {
-        if (i >= 1 && i <= 9) {
-            printf("%s\n", words[i]);
-        } else if (i % 2 == 0) {
-            printf("even\n");
-        } else {
-            printf("odd\n");
-        }
+    while (n > 0) {
+        sum += n % 10;
+        n /= 10;
     }
+
+    printf("%d\n", sum);
 
     return 0;
 }
