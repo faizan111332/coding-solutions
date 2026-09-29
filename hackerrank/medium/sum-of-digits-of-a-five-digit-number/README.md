@@ -1,4 +1,4 @@
-# For Loop in C
+# Sum of Digits of a Five Digit Number
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -30,26 +30,21 @@ Print the sum of the digits of the five digit number.
 **Language:** C  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-29T06:01:37.928Z  
+**Submitted:** 2026-09-29T06:02:17.585Z  
 
 ```c
 #include <stdio.h>
 
 int main() {
-    int a, b;
-    scanf("%d\n%d", &a, &b);
+    int n, sum = 0;
+    scanf("%d", &n);
 
-    char *words[] = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-
-    for (int i = a; i <= b; i++) {
-        if (i >= 1 && i <= 9) {
-            printf("%s\n", words[i]);
-        } else if (i % 2 == 0) {
-            printf("even\n");
-        } else {
-            printf("odd\n");
-        }
+    while (n > 0) {
+        sum += n % 10;
+        n /= 10;
     }
+
+    printf("%d\n", sum);
 
     return 0;
 }
