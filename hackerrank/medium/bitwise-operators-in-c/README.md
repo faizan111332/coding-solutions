@@ -1,4 +1,4 @@
-# Sum of Digits of a Five Digit Number
+# Bitwise Operators
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -77,22 +77,41 @@ The only line contains $2$ space-separated integers, $n$ and $k$.
 **Language:** C  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-29T06:02:22.535Z  
+**Submitted:** 2026-09-29T06:03:15.632Z  
 
 ```c
 #include <stdio.h>
 
-int main() {
-    int n, sum = 0;
-    scanf("%d", &n);
+void calculate_the_maximum(int n, int k) {
+    int max_and = 0;
+    int max_or = 0;
+    int max_xor = 0;
 
-    while (n > 0) {
-        sum += n % 10;
-        n /= 10;
+    for (int a = 1; a <= n; a++) {
+        for (int b = a + 1; b <= n; b++) {
+            int and_val = a & b;
+            int or_val = a | b;
+            int xor_val = a ^ b;
+
+            if (and_val < k && and_val > max_and) {
+                max_and = and_val;
+            }
+            if (or_val < k && or_val > max_or) {
+                max_or = or_val;
+            }
+            if (xor_val < k && xor_val > max_xor) {
+                max_xor = xor_val;
+            }
+        }
     }
 
-    printf("%d\n", sum);
+    printf("%d\n%d\n%d\n", max_and, max_or, max_xor);
+}
 
+int main() {
+    int n, k;
+    scanf("%d %d", &n, &k);
+    calculate_the_maximum(n, k);
     return 0;
 }
 
