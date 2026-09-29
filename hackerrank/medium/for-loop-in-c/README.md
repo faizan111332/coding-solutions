@@ -1,4 +1,4 @@
-# Conditional Statements in C
+# For Loop in C
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -52,35 +52,25 @@ Print the appropriate English representation,`even`, or `odd`, based on the cond
 **Language:** C  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-29T06:00:45.178Z  
+**Submitted:** 2026-09-29T06:01:34.551Z  
 
 ```c
 #include <stdio.h>
 
 int main() {
-    int n;
-    scanf("%d", &n);
+    int a, b;
+    scanf("%d\n%d", &a, &b);
 
-    if (n == 1) {
-        printf("one\n");
-    } else if (n == 2) {
-        printf("two\n");
-    } else if (n == 3) {
-        printf("three\n");
-    } else if (n == 4) {
-        printf("four\n");
-    } else if (n == 5) {
-        printf("five\n");
-    } else if (n == 6) {
-        printf("six\n");
-    } else if (n == 7) {
-        printf("seven\n");
-    } else if (n == 8) {
-        printf("eight\n");
-    } else if (n == 9) {
-        printf("nine\n");
-    } else {
-        printf("Greater than 9\n");
+    char *words[] = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+
+    for (int i = a; i <= b; i++) {
+        if (i >= 1 && i <= 9) {
+            printf("%s\n", words[i]);
+        } else if (i % 2 == 0) {
+            printf("even\n");
+        } else {
+            printf("odd\n");
+        }
     }
 
     return 0;
